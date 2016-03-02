@@ -1,6 +1,6 @@
 #!/bin/sh
 
-trap 'ECHO "SHUTTING DOWN"; riak stop ; exit $?' SIGINT SIGTERM
+trap 'echo "SHUTTING DOWN"; riak stop ; exit $?' HUP INT QUIT KILL TERM
 
 export IPADDR=`grep ${HOSTNAME} /etc/hosts|awk '{print $1}'`
 
