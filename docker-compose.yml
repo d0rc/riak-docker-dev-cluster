@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  riak-first:
+    image: riak
+
+  riak:
+    image: riak
+    depends_on:
+      - riak-first
+    environment:
+      FIRST: riak-first
