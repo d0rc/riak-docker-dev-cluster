@@ -1,20 +1,5 @@
 version: '2'
 
 services:
-  riak-first:
-    image: riak
-    networks:
-      - riak-cluster-bridge
-
   riak:
     image: riak
-    networks:
-      - riak-cluster-bridge
-    links:
-      - riak-first
-    environment:
-      FIRST: riak-first
-
-networks:
-  riak-cluster-bridge:
-    driver: bridge
