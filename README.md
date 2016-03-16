@@ -14,7 +14,7 @@ Set up virtual machine to run docker containers:
 
 Set the environment:
 
- * eval $(docker env)
+ * eval $(docker-machine env)
 
 Start Riak cluster:
 
