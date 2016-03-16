@@ -1,3 +1,6 @@
+## Get Ready!
+
+### Option 1: Homebrew & xhyve
 
 From Homebrew, install:
 
@@ -17,6 +20,18 @@ Set up virtual machine to run docker containers:
 ```console
 $ docker-machine create --driver xhyve default
 ```
+
+### Option 2: Docker Toolbox & VirtualBox
+
+Install [Docker Toolbox](https://www.docker.com/docker-toolbox), which sets up Docker, Docker Machine, Docker Compose and VirtualBox (among other things).
+
+Create the Docker Machine VM ```default``` with the VirtualBox driver. You can use the ```--virtualbox-no-share``` option, telling ```docker-machine``` *not* to share your whole ```/Users``` directory inside the created VM.
+
+```console
+$ docker-machine create --driver virtualbox --virtualbox-no-share
+```
+
+## And Go!
 
 Set the environment:
 
