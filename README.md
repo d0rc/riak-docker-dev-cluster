@@ -28,7 +28,7 @@ Install [Docker Toolbox](https://www.docker.com/docker-toolbox), which sets up D
 Create the Docker Machine VM ```default``` with the VirtualBox driver. You can use the ```--virtualbox-no-share``` option, telling ```docker-machine``` *not* to share your whole ```/Users``` directory inside the created VM.
 
 ```console
-$ docker-machine create --driver virtualbox --virtualbox-no-share
+$ docker-machine create --driver virtualbox --virtualbox-no-share default
 ```
 
 ## And Go!
