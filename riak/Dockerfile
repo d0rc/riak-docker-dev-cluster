@@ -9,10 +9,6 @@ RUN curl -fo /etc/yum.repos.d/basho.repo \
     	&& \
     yum clean all
 
-EXPOSE 8087 8098
-#       \    '- Riak client HTTP port
-#        '- Riak client Protobuf port
-
 COPY scripts/*.sh /
 
 ENTRYPOINT ["sh", "/riak-run.sh"]
