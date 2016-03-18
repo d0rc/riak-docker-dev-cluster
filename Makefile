@@ -1,7 +1,7 @@
 TIMEOUT=120
 
 build:
-	docker build -t riak .
+	docker build -t riak riak
 
 start: build
 	docker-compose up -t $(TIMEOUT) -d
@@ -12,3 +12,5 @@ stop:
 
 clean: stop
 	docker-compose rm -fv
+
+.PHONY: build start stop clean
