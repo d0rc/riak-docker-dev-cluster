@@ -9,12 +9,20 @@ sed -i "s:riak@127.0.0.1:riak@${IPADDR}:" /etc/riak/riak.conf
 sed -i "s:^log.console = file:log.console = both:" /etc/riak/riak.conf
 echo "listener.http.external = ${IPADDR}:8098" >>/etc/riak/riak.conf
 echo "listener.protobuf.external = ${IPADDR}:8087" >>/etc/riak/riak.conf
-
+echo "riak_control = on" >> /etc/riak/riak.conf
 riak start
 
 echo "Sleeping before joining cluster"
+nodes=`dig +short riak | sort`
+for node in $nodes
+do
+	echo riak-admin cluster join riak@$node
+done
 sleep `expr 10 + ${RANDOM} % 10`
-riak-admin cluster join riak@`dig +short riak`
+for node in $nodes
+do
+	riak-admin cluster join riak@$node
+done
 
 echo "Sleeping before committing to cluster"
 sleep `expr 15 + ${RANDOM} % 15`

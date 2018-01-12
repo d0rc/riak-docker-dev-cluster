@@ -17,8 +17,8 @@ build-haproxy:
 	docker build -t riak-haproxy --rm haproxy
 
 run: build
-	docker-compose up -t $(TIMEOUT) -d
-	docker-compose scale -t $(TIMEOUT) haproxy=1 riak=5
+	docker-compose up --scale riak=5
+	# docker-compose scale -t $(TIMEOUT) haproxy=1 riak=5
 
 show: run
 	@echo ""
